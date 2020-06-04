@@ -2,7 +2,7 @@
 
 
 
-from flask import Blueprint, jsonify, request, render_template #, flash, redirect
+from flask import Blueprint, jsonify, request, render_template , flash, redirect
 
 from web_app.models import db, Tweet, parse_records
 

@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "bootstrap_nav_layout.html" %}
+{% set active_page = "new_tweet" %}
+
+{% block content %}
 
     <h1>New Tweet Page</h1>
 
@@ -25,6 +21,4 @@
 
         <button>Submit</button>
     </form>
-
-</body>
-</html>
+{% endblock %}

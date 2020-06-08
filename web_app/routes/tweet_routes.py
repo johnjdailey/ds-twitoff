@@ -52,5 +52,5 @@ def create_tweet():
         "message": "TWEET CREATED OK",
         "tweet": dict(request.form)
     })
-    flash(f"Tweet '{new_tweet.title}' Created successfully!", "Success")
+    flash(f"Tweet '{new_tweet.title}' Created successfully!", "info")
     return redirect(f"/tweets")

@@ -1,3 +1,5 @@
+<!-- web_app/templates/tweets.html -->
+
 {% extends "bootstrap_nav_layout.html" %}
 {% set active_page = "tweets" %}
 
@@ -10,7 +12,7 @@
     {% if tweets %}
         <ul>
         {% for tweet in tweets %}
-            <li>{{ tweet["title"] }}</li>
+            <li>{{tweet["full_text"] }}</li>
         {% endfor %}
         </ul>
 

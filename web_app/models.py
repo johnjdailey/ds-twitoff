@@ -14,9 +14,11 @@ migrate = Migrate()
 
 class User(db.Model):
     """Twitter Users"""
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(128))
-    user_id = db.Column(db.String(128))
+    id = db.Column(db.BigInteger, primary_key=True)
+    screen_name = db.Column(db.String(128), nullable=False)
+    name = db.Column(db.String(15), nullable=False)
+    location = db.Column(db.String)
+    followers_count = db.Column(db.Integer)
 
     def __repr__(self):
         return f"<User {self.id} {self.title}>"
@@ -24,12 +26,15 @@ class User(db.Model):
 
 class Tweet(db.Model):
     """Tweets"""
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(128))
-    user_id = db.Column(db.String(128))
+    id = db.Column(db.BigInteger, primary_key=True)
+    user_id = db.Column(db.BigInteger, db.ForeignKey("user.id"), nullable=False)
+    full_text = db.Column(db.Unicode(500))
+    embedding = db.Column(db.PickleType, nullable=False)
+
+    user = db.relationship("User", backref=db.backref("tweets", lazy=True))
 
     def __repr__(self):
-        return f"<Tweet {self.id} {self.title}>"
+        return f"<Tweet {self.id}>" # self.id just returns bullets #{self.title} there is no self.title
 
 
 def parse_records(database_records):

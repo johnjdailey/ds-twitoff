@@ -1,0 +1,39 @@
+<!-- web_app/templates/prediction_form.html -->
+
+<!-- CHALLENGE / TODO: Instead of hard-coding the drop-down menu's options, can you revise this last jinja template to loop through all existing users in the database to populate the options? -->
+
+{% extends "bootstrap_nav_layout.html" %}
+{% set active_page = "prediction_form" %}
+
+{% block content %}
+    <h2>Prediction Time</h2>
+
+    <p>Use the form below to predict which user is more likely to say a given tweet...</p>
+
+    <form action="/predict" method="POST">
+
+        <!-- TODO: Instead of hard-coding these drop-down menu options, dynamically populate them based on user records from the database -->
+        <label>Twitter User A:</label>
+        <select name="screen_name_a">
+            <option value="GVanRossum" selected="true">@GVanRossum</option>
+            <option value="AndrewYNg">@AndrewYNg</option>
+            <option value="LexFridman">@LexFridman</option>
+        </select>
+        <br>
+
+        <!-- TODO: Instead of hard-coding these drop-down menu options, dynamically populate them based on user records from the database -->
+        <label>Twitter User B:</label>
+        <select name="screen_name_b">
+            <option value="GVanRossum">@GVanRossum</option>
+            <option value="AndrewYNg" selected="true">@AndrewYNg</option>
+            <option value="LexFridma">@LexFridman</option>
+          </select>
+        <br>
+
+        <label>Tweet Text:</label>
+        <input type="text" name="tweet_text" placeholder="Python is a great programming language." value="Python is a great programming language.">
+        <br>
+
+        <button>Submit</button>
+    </form>
+{% endblock %}

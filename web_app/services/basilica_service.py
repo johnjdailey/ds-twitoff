@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     # Simple embed to test
 
-    embedding = connection.embed_sentence("HELLO WORLD")
+    embedding = connection.embed_sentence("HELLO WORLD", model='twitter')
     print(embedding) #>
     
 

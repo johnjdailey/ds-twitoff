@@ -9,7 +9,7 @@ from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression # for example
 
 
-MODEL_FILEPATH = os.path.join(os.path.dirname(__file__), "..", "stats_models", "latest_model.pkl")
+MODEL_FILEPATH = os.path.join(os.path.dirname(__file__), "stats_models", "latest_model.pkl")
 
 
 def train_and_save_model():
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     # PRE-TRAIN AND LOAD SAVED MODEL APPROACH
     
-    #train_and_save_model()
+    train_and_save_model()
 
     #exit()
 

@@ -16,13 +16,13 @@ class User(db.Model):
     """Twitter Users"""
     id = db.Column(db.BigInteger, primary_key=True)
     screen_name = db.Column(db.String(128), nullable=False)
-    name = db.Column(db.String(15))
+    name = db.Column(db.String)
     location = db.Column(db.String)
     followers_count = db.Column(db.Integer)
     #latest_tweet_id = db.Column(db.BigInteger)
 
-    #def __repr__(self):
-    #    return f"<User {self.id} {self.title}>"
+    def __repr__(self):
+        return f"<User {self.id} {self.title}>"
 
 
 # Set a user.id as a foreign key
@@ -36,8 +36,8 @@ class Tweet(db.Model):
 
     user = db.relationship("User", backref=db.backref("tweets", lazy=True))
 
-    #def __repr__(self):
-    #    return f"<Tweet {self.id}>" # self.id just returns bullets #{self.title} there is no self.title
+    def __repr__(self):
+        return f"<Tweet {self.id}>" # self.id just returns bullets #{self.title} there is no self.title
 
 
 def parse_records(database_records):

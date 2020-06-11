@@ -30,16 +30,10 @@ load_dotenv()
 # Set a path to the database we will be using to store the data
 # Do not need to create the page, it will be created automatically by the app
 
-# Fine when running locally
+# Fine when running locally and set for heroku app to work
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = os.getenv("SECRET_KEY")
-
-
-# Set up for heroku web app to work
-
-#DATABASE_URI = 
-#SECRET_KEY = os.getenv("SECRET_KEY", default="super secret key")
 
 
 # Initialize app
@@ -51,7 +45,7 @@ def create_app():
     # Configure the database
 
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
-    #app.config['SECRET_KEY'] = SECRET_KEY # prevents cookies to be modified
+    app.config['SECRET_KEY'] = SECRET_KEY # prevents cookies to be modified
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
     migrate.init_app(app, db)

@@ -19,11 +19,14 @@ class User(db.Model):
     name = db.Column(db.String(15), nullable=False)
     location = db.Column(db.String)
     followers_count = db.Column(db.Integer)
+    #latest_tweet_id = db.Column(db.BigInteger)
 
-    def __repr__(self):
-        return f"<User {self.id} {self.title}>"
+    #def __repr__(self):
+    #    return f"<User {self.id} {self.title}>"
 
 
+# Set a user.id as a foreign key
+# Create an embedding attribute, we will need this when using the Basilica api
 class Tweet(db.Model):
     """Tweets"""
     id = db.Column(db.BigInteger, primary_key=True)
@@ -33,8 +36,8 @@ class Tweet(db.Model):
 
     user = db.relationship("User", backref=db.backref("tweets", lazy=True))
 
-    def __repr__(self):
-        return f"<Tweet {self.id}>" # self.id just returns bullets #{self.title} there is no self.title
+    #def __repr__(self):
+    #    return f"<Tweet {self.id}>" # self.id just returns bullets #{self.title} there is no self.title
 
 
 def parse_records(database_records):

@@ -10,24 +10,31 @@
 
     <p>Use the form below to predict which user is more likely to say a given tweet...</p>
 
+    <p>If the Twitter user has never been used before, you will recieve an error. <br>
+        If this happens, please visit the create user link <a href="http://127.0.0.1:5000/users/new">here</a> to add the specific Twitter user to our working database. </p>
+
     <form action="/predict" method="POST">
 
         <!-- TODO: Instead of hard-coding these drop-down menu options, dynamically populate them based on user records from the database -->
-        <label>Twitter User A:</label>
+        <label>Twitter User A Screen Name:</label>
         <select name="screen_name_a">
             <option value="GVanRossum" selected="true">@GVanRossum</option>
             <option value="AndrewYNg">@AndrewYNg</option>
             <option value="LexFridman">@LexFridman</option>
         </select>
+        
+        <!-- <input type="text" name="screen_name_a" placeholder="GVanRossum" value="GVanRossum"> -->
         <br>
 
         <!-- TODO: Instead of hard-coding these drop-down menu options, dynamically populate them based on user records from the database -->
-        <label>Twitter User B:</label>
+        <label>Twitter User B Screen Name:</label>
         <select name="screen_name_b">
             <option value="GVanRossum">@GVanRossum</option>
             <option value="AndrewYNg" selected="true">@AndrewYNg</option>
             <option value="LexFridma">@LexFridman</option>
           </select>
+        
+        <!-- <input type="text" name="screen_name_a" placeholder="AndrewYNg" value="AndrewYNg"> -->
         <br>
 
         <label>Tweet Text:</label>

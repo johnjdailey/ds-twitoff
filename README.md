@@ -60,6 +60,56 @@ Users Page: http://127.0.0.1:5000//users/<screen_name>
     analysis)
 
 
-# Connecting to a Postgres Database
+# Example Database URLs for local SQLite DB:
+
+local .env file...
+
+mac:
+
+DATABASE_URL="sqlite:////Users/YOURUSERNAME/Desktop/my-web-app-12/web_app/web_app_12.db"
+
+windows:
+
+DATABASE_URL="sqlite:///C:\\Users\\YOURUSERNAME\\Desktop\\TwitterApp\\web_app\\web_app_200.db"
+
+
+# Provisioning production database:
+
+heroku config
+heroku addons:create heroku-postgresql:hobby-dev
+#> provisions a new DATABASE_URL
+heroku config
+
+
+# Migrating the production database:
+
+first login to the server, then run the migration commands there:
+
+heroku run bash
+
+ ... FLASK_APP=web_app flask db init
+ ... FLASK_APP=web_app flask db migrate
+ ... FLASK_APP=web_app flask db upgrade
+
+that should work, but alternatively you might be able to run these detached commands (if you didn't ignore your migrations dir):
+
+heroku run "FLASK_APP=web_app flask db init"
+heroku run "FLASK_APP=web_app flask db stamp head"
+heroku run "FLASK_APP=web_app flask db migrate"
+heroku run "FLASK_APP=web_app flask db upgrade"
+
+# Connecting to a Postgres Database (from Table Plus or another DBMS)
 
 postgres://USERNAME:PASSWORD@HOST:5432/DB_NAME
+
+
+# Configuring production environment variables:
+
+heroku config
+heroku config:set ALPHAVANTAGE_API_KEY="_____"
+heroku config:set BASILICA_API_KEY="_____"
+heroku config:set TWITTER_API_KEY="_____"
+heroku config:set TWITTER_API_SECRET="______"
+heroku config:set TWITTER_ACCESS_TOKEN="______"
+heroku config:set TWITTER_ACCESS_TOKEN_SECRET="_____"
+heroku config

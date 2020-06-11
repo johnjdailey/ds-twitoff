@@ -21,7 +21,7 @@ from web_app.routes.home_routes import home_routes
 from web_app.routes.tweet_routes import tweet_routes
 from web_app.routes.twitter_routes import twitter_routes
 from web_app.routes.stats_routes import stats_routes
-from web_app.routes.iris_stats_routes import iris_stats_routes
+#from web_app.routes.iris_stats_routes import iris_stats_routes
 
 
 load_dotenv()
@@ -51,7 +51,7 @@ def create_app():
     # Configure the database
 
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
-    app.config['SECRET_KEY'] = SECRET_KEY # prevents cookies to be modified
+    #app.config['SECRET_KEY'] = SECRET_KEY # prevents cookies to be modified
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
     migrate.init_app(app, db)
@@ -63,7 +63,7 @@ def create_app():
     app.register_blueprint(tweet_routes)
     app.register_blueprint(twitter_routes)
     app.register_blueprint(stats_routes)
-    app.register_blueprint(iris_stats_routes)
+    #app.register_blueprint(iris_stats_routes)
 
     return app
 

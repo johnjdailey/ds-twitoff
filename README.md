@@ -58,3 +58,8 @@ Users Page: http://127.0.0.1:5000//users/<screen_name>
     (replace <screen_name> with a twitter handle to add
     that user's twitter data to the SQLite DB for further
     analysis)
+
+
+# Connecting to a Postgres Database
+
+postgres://USERNAME:PASSWORD@HOST:5432/DB_NAME

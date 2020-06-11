@@ -33,7 +33,7 @@ load_dotenv()
 # Fine when running locally
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-SECRET_KEY = os.getenv("SECRET_KEY")
+#SECRET_KEY = os.getenv("SECRET_KEY")
 
 
 # Set up for heroku web app to work

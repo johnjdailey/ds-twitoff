@@ -33,7 +33,7 @@ load_dotenv()
 # Fine when running locally
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-#SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 
 # Set up for heroku web app to work
@@ -46,7 +46,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 def create_app():
     app = Flask(__name__)
-    #app.config["SECRET_KEY"] = SECRET_KEY
+    app.config["SECRET_KEY"] = SECRET_KEY
 
     # Configure the database
 

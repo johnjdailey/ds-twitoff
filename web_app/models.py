@@ -16,7 +16,7 @@ class User(db.Model):
     """Twitter Users"""
     id = db.Column(db.BigInteger, primary_key=True)
     screen_name = db.Column(db.String(128), nullable=False)
-    name = db.Column(db.String(15), nullable=False)
+    name = db.Column(db.String(15))
     location = db.Column(db.String)
     followers_count = db.Column(db.Integer)
     #latest_tweet_id = db.Column(db.BigInteger)
@@ -30,9 +30,9 @@ class User(db.Model):
 class Tweet(db.Model):
     """Tweets"""
     id = db.Column(db.BigInteger, primary_key=True)
-    user_id = db.Column(db.BigInteger, db.ForeignKey("user.id"), nullable=False)
-    full_text = db.Column(db.Unicode(500))
-    #embedding = db.Column(db.PickleType, nullable=False)
+    user_id = db.Column(db.BigInteger, db.ForeignKey("user.id"))
+    full_text = db.Column(db.String(500))
+    embedding = db.Column(db.PickleType)
 
     user = db.relationship("User", backref=db.backref("tweets", lazy=True))
 

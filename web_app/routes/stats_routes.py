@@ -28,26 +28,27 @@ def predict():
 
     # Fetch users and tweets from the database
 
-    #print("-----------------")
-    #print("FETCHING TWEETS FROM THE DATABASE...")
-    ## todo: wrap in a try block in case the user's don't exist in the database
-#
-#
-    ## Filter so that we select only the username equal to screen_name_a (the first one the user picked on the form)
-#
-    #user_a = User.query.filter(User.screen_name == screen_name_a).one() # try: .first()
-    #user_b = User.query.filter(User.screen_name == screen_name_b).one() # also try: one or none() # no error handling required
-#
-#
-    # # Select only tweets from user a and user b
-#
-    #user_a_tweets = user_a.tweets
-    #user_b_tweets = user_b.tweets
+    print("-----------------")
+    print("FETCHING TWEETS FROM THE DATABASE...")
+    # todo: wrap in a try block in case the user's don't exist in the database
+
+
+    # Filter so that we select only the username equal to screen_name_a (the first one the user picked on the form)
+    No row was found for one()
+    user_a = User.query.filter_by(screen_name=screen_name_a).one() # try: .first()
+    user_b = User.query.filter_by(screen_name=screen_name_b).one() # also try: one or none() # no error handling required
+
+
+    # Select only tweets from user a and user b
+
+    user_a_tweets = user_a.tweets # still getting 'NoneType' object has no attribute 'tweet'
+    user_b_tweets = user_b.tweets 
 
     #user_a_embeddings = [tweet.embedding for tweet in user_a_tweets]
     #user_b_embeddings = [tweet.embedding for tweet in user_b_tweets]
-   #print("USER A", user_a.screen_name, len(user_a.tweets))
-   #print("USER B", user_b.screen_name, len(user_b.tweets))
+    print("USER A", user_a.screen_name, len(user_a.tweets))
+    print("USER B", user_b.screen_name, len(user_b.tweets))
+    # consider returning a warning message / redirect if the data isn't in the database
 
    #print("-----------------")
    #print("TRAINING THE MODEL...")

@@ -16,16 +16,16 @@ pipenv install
 
 # Change Directories
 
-cd web_app
+```cd web_app```
 
 # Run Flask
 
-# Mac:
-FLASK_APP=web_app flask run
+Mac:
+```FLASK_APP=web_app flask run```
 
-# Windows:
-set FLASK_APP=web_app # one-time thing, to set the env var
-flask run
+Windows:
+```set FLASK_APP=web_app``` # one-time thing, to set the env var
+```flask run```
 
 # Migration for DB
 

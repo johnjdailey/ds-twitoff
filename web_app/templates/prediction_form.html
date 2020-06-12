@@ -17,24 +17,35 @@
 
         <!-- TODO: Instead of hard-coding these drop-down menu options, dynamically populate them based on user records from the database -->
         <label>User A Twitter Handle:</label>
+        <select type="select" name="screen_name_a">
+            {% for user in users -%}
+                <option value="{{ user }}">{{ user }}</option>
+            {%- endfor %}
+        </select>
        <!--  <select name="screen_name_a">
             <option value="gvanrossum" selected="true">@gvanrossum</option>
             <option value="AndrewYNg">@AndrewYNg</option>
             <option value="lexfridman">@lexfridman</option>
         </select> -->
         
-        <input type="text" name="screen_name_a" placeholder="eg: gvanrossum" value="gvanrossum">
+{#        <input type="text" name="screen_name_a" placeholder="eg: gvanrossum" value="gvanrossum">#}
         <br>
 
         <!-- TODO: Instead of hard-coding these drop-down menu options, dynamically populate them based on user records from the database -->
         <label>User B Twitter Handle:</label>
+        <select type="select" name="screen_name_b">
+            {% for user in users -%}
+                <option value="{{ user }}">{{ user }}</option>
+            {%- endfor %}
+        </select>
+
         <!-- <select name="screen_name_b">
             <option value="gvanrossum">@gvanrossum</option>
             <option value="AndrewYNg" selected="true">@AndrewYNg</option>
             <option value="lexfridman">@lexfridman</option>
           </select> -->
         
-        <input type="text" name="screen_name_b" placeholder="eg: AndrewYNg" value="AndrewYNg">
+{#        <input type="text" name="screen_name_b" placeholder="eg: AndrewYNg" value="AndrewYNg">#}
         <br>
 
         <label>Tweet Text:</label>

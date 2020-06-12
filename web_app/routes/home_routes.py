@@ -3,6 +3,7 @@
 
 
 from flask import Blueprint, render_template
+from web_app.models import User
 
 # Define home routes
 home_routes = Blueprint("home_routes", __name__)
@@ -14,7 +15,9 @@ home_routes = Blueprint("home_routes", __name__)
 @home_routes.route("/")
 def index():
     #print("Twittoff Home Page!")
-    return render_template("prediction_form.html")
+    users = User.query.all()
+    usernames = [user.screen_name for user in users]
+    return render_template("prediction_form.html", users=usernames)
 
 
 # When the user visits /about

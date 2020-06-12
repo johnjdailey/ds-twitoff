@@ -8,13 +8,14 @@
     
     <h1>New User Page</h1>
 
-    <p>Please fill out the form below to add a new Twitter user to the database:</p>
+    <p>Please fill out the form below to add a new Twitter user to the database, 
+    <br>and populate the database with the user's 150 latest tweets:</p>
 
     <!-- Post request -->
     <form action="/users/create" method="POST">
 
         <label>New Twitter Handle:</label>
-        <input type="text" name="screen_name" placeholder="elonmusk" value="elonmusk">
+        <input type="text" name="screen_name" placeholder="ie: elonmusk" value="elonmusk">
 
         <!-- Button -->
         <button>Submit</button>
